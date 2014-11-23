@@ -7,6 +7,26 @@ J4=[0,0,0,0,0,0]
 
 #class DiesisieteVeces:
 
+def dados(dado):
+    import pygame
+    from pygame.locals import*
+    pygame.init()
+
+    if dado==1:
+        d1="img/1.png"
+    elif dado==2:
+        d1="img/2.png"
+    elif dado==3:
+        d1="img/3.png"
+    elif dado==4:
+        d1="img/4.png"
+    elif dado==5:
+        d1="img/5.png"
+    elif dado==6:
+        d1="img/6.png"
+    return d1
+
+
 def Jugadores(self,Numero):
 	if Numero == 0:
 		return J1
@@ -66,7 +86,7 @@ def LanzarDado():
 	import random
 	Cara = random.randrange(1,7)
 	return Cara
-
+	
 def AgregarCara(Cara,*J):
 	""" Metodo que agregara el numero de caras que saque el jugador
 	de acuerdo al metodo de 'LanzarDados', se tomara la variable

@@ -20,6 +20,7 @@ def main():
     j1=[0,0,0,0,0,0]
     j2=[0,0,0,0,0,0]
     qw=class17Veces.AgregarCara
+    img_dado=class17Veces.dados
     #tj1=pygame.image.load("img/j1.png").convert()
     #tj2=pygame.image.load("img/j2.png").convert()
     tj1="turno jugador #1"
@@ -30,7 +31,6 @@ def main():
     d3=pygame.image.load("img/3.png").convert()
     d4=pygame.image.load("img/4.png").convert()
     d5=pygame.image.load("img/5.png").convert()
-
     teclas=pygame.image.load("img/teclas.png").convert()
 
     screen.blit(fondo,(0,0))
@@ -44,80 +44,27 @@ def main():
         screen.blit(d4,(350,250))
         screen.blit(d5,(450,250))
         screen.blit(teclas,(20,400))
+
         for evento in pygame.event.get():
+
             if evento.type==QUIT:
                 sys.exit()
+
             elif evento.type==KEYUP:
                 if evento.key==K_SPACE:
+
                     dado1=class17Veces.LanzarDado()
                     dado2=class17Veces.LanzarDado()
                     dado3=class17Veces.LanzarDado()
                     dado4=class17Veces.LanzarDado()
                     dado5=class17Veces.LanzarDado()
-                    if dado1==1:
-                        d1=pygame.image.load("img/1.png").convert()
-                    if dado1==2:
-                        d1=pygame.image.load("img/2.png").convert()
-                    if dado1==3:
-                        d1=pygame.image.load("img/3.png").convert()
-                    if dado1==4:
-                        d1=pygame.image.load("img/4.png").convert()
-                    if dado1==5:
-                        d1=pygame.image.load("img/5.png").convert()
-                    if dado1==6:
-                        d1=pygame.image.load("img/6.png").convert()
-                        #dado 2
-                    if dado2==1:
-                        d2=pygame.image.load("img/1.png").convert()
-                    if dado2==2:
-                        d2=pygame.image.load("img/2.png").convert()
-                    if dado2==3:
-                        d2=pygame.image.load("img/3.png").convert()
-                    if dado2==4:
-                        d2=pygame.image.load("img/4.png").convert()
-                    if dado2==5:
-                        d2=pygame.image.load("img/5.png").convert()
-                    if dado2==6:
-                        d2=pygame.image.load("img/6.png").convert()
 
-                    if dado3==1:
-                        d3=pygame.image.load("img/1.png").convert()
-                    if dado3==2:
-                        d3=pygame.image.load("img/2.png").convert()
-                    if dado3==3:
-                        d3=pygame.image.load("img/3.png").convert()
-                    if dado3==4:
-                        d3=pygame.image.load("img/4.png").convert()
-                    if dado3==5:
-                        d3=pygame.image.load("img/5.png").convert()
-                    if dado3==6:
-                        d3=pygame.image.load("img/6.png").convert()
+                    d1=pygame.image.load(img_dado(dado1)).convert()
+                    d2=pygame.image.load(img_dado(dado2)).convert()
+                    d3=pygame.image.load(img_dado(dado3)).convert()
+                    d4=pygame.image.load(img_dado(dado4)).convert()
+                    d5=pygame.image.load(img_dado(dado5)).convert()
 
-                    if dado4==1:
-                        d4=pygame.image.load("img/1.png").convert()
-                    if dado4==2:
-                        d4=pygame.image.load("img/2.png").convert()
-                    if dado4==3:
-                        d4=pygame.image.load("img/3.png").convert()
-                    if dado4==4:
-                        d4=pygame.image.load("img/4.png").convert()
-                    if dado4==5:
-                        d4=pygame.image.load("img/5.png").convert()
-                    if dado4==6:
-                        d4=pygame.image.load("img/6.png").convert()
-
-                    if dado5==1:
-                        d5=pygame.image.load("img/1.png").convert()
-                    if dado5==2:
-                        d5=pygame.image.load("img/2.png").convert()
-                    if dado5==3:
-                        d5=pygame.image.load("img/3.png").convert()
-                    if dado5==4:
-                        d5=pygame.image.load("img/4.png").convert()
-                    if dado5==5:
-                        d5=pygame.image.load("img/5.png").convert()
-                    if dado5==6:
-                        d5=pygame.image.load("img/6.png").convert()
                     turno=turno+1
                 if turno%2==0:
                     letra30=pygame.font.SysFont("Arial",20)
