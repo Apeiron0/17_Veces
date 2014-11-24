@@ -14,11 +14,11 @@ def main():
     pygame.display.set_caption("17 veces")
     fondo=pygame.image.load("img/fondo.png").convert()
 
-    turno=2
+    turno=1
     j1=[0,0,0,0,0,0]
     j2=[0,0,0,0,0,0]
-    tj1="Dados Lanzados por jugador #1"
-    tj2="Dados Lanzados por jugador #2"
+    tj1="Turno jugador #1"
+    tj2="Turno jugador #2"
 
     qw=class17Veces.AgregarCara
     img_dado=class17Veces.dados
@@ -47,6 +47,7 @@ def main():
 
             elif evento.type==KEYUP:
                 if evento.key==K_SPACE:
+                    turno=turno+1
                     #Lanzar Dados
                     dado1=class17Veces.LanzarDado()
                     dado2=class17Veces.LanzarDado()
@@ -60,21 +61,19 @@ def main():
                     d4=pygame.image.load(img_dado(dado4)).convert()
                     d5=pygame.image.load(img_dado(dado5)).convert()
                     #Se imprime el letrero correspondiente a quien tiro los dados
-                    if turno%2==0:
-                        letra30=pygame.font.SysFont("Arial",20)
-                        imagenTextoPresent=letra30.render(tj1,True,(50,50,50),(0,0,0))
-                        rectanguloTextoPresent=imagenTextoPresent.get_rect()
-                        rectanguloTextoPresent.centerx=150
-                        rectanguloTextoPresent.centery=300
-                    else:
-                        letra30=pygame.font.SysFont("Arial",20)
-                        imagenTextoPresent=letra30.render(tj2,True,(50,50,50),(0,0,0))
-                        rectanguloTextoPresent=imagenTextoPresent.get_rect()
-                        rectanguloTextoPresent.centerx=150
-                        rectanguloTextoPresent.centery=300
-                    #print turno
-                    turno=turno+1
-                screen.blit(imagenTextoPresent,rectanguloTextoPresent)
+            if turno%2==0:
+                letra30=pygame.font.SysFont("Arial",20)
+                imagenTextoPresent=letra30.render(tj2,True,(50,50,50),(0,0,0))
+                rectanguloTextoPresent=imagenTextoPresent.get_rect()
+                rectanguloTextoPresent.centerx=150
+                rectanguloTextoPresent.centery=300
+            else:
+                letra30=pygame.font.SysFont("Arial",20)
+                imagenTextoPresent=letra30.render(tj1,True,(50,50,50),(0,0,0))
+                rectanguloTextoPresent=imagenTextoPresent.get_rect()
+                rectanguloTextoPresent.centerx=150
+                rectanguloTextoPresent.centery=300
+            screen.blit(imagenTextoPresent,rectanguloTextoPresent)
 
                 #Marcador de los jugadores
             p1x=50
