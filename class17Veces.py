@@ -1,3 +1,7 @@
+import pygame
+from pygame.locals import*
+pygame.init()
+
 Disponibles=[True,True,True,True,True,True]
 
 J1=[0,0,0,0,0,0]
