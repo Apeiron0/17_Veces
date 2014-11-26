@@ -19,9 +19,12 @@ def main():
     j2=[0,0,0,0,0,0]
     tj1="Turno jugador #1"
     tj2="Turno jugador #2"
+    gana_j1="El ganador es el jugador #1"
+    gana_j2="El ganador es el jugador #2"
 
-    qw=class17Veces.AgregarCara
+    agregar=class17Veces.AgregarCara
     img_dado=class17Veces.dados
+    ver_ganador=class17Veces.VerfGanador
 
     d1=pygame.image.load("img/1.png").convert()
     d2=pygame.image.load("img/2.png").convert()
@@ -38,7 +41,7 @@ def main():
         screen.blit(d3,(250,150))
         screen.blit(d4,(350,250))
         screen.blit(d5,(450,250))
-        screen.blit(teclas,(20,400))
+        screen.blit(teclas,(400,400))
 
         for evento in pygame.event.get():
 
@@ -54,6 +57,37 @@ def main():
                     dado3=class17Veces.LanzarDado()
                     dado4=class17Veces.LanzarDado()
                     dado5=class17Veces.LanzarDado()
+                    tirada=[dado1,dado2,dado3,dado4,dado5]
+                    if turno%2==0:
+                        for x in tirada:
+                            j2=agregar(x,*j2)
+                            winer=ver_ganador(x,*j2)
+                            if winer==True:
+                                l30=pygame.font.SysFont("Arial",30)
+                                iTP=l30.render(gana_j2,True,(50,50,50),(0,0,0))
+                                rTP=iTP.get_rect()
+                                rTP.centerx=150
+                                rTP.centery=400
+                                screen.blit(iTP,rTP)
+                        print "este es el arreglo del primer jugador"
+                        print tirada
+                        print "esto me devuelve el metodo en turno par"
+                        print j1
+                    else:
+                        for x in tirada:
+                            j1=agregar(x,*j1)
+                            winer=ver_ganador(x,*j2)
+                            if winer==True:
+                                l30=pygame.font.SysFont("Arial",30)
+                                iTP=l30.render(gana_j1,True,(50,50,50),(0,0,0))
+                                rTP=iTP.get_rect()
+                                rTP.centerx=150
+                                rTP.centery=400
+                                screen.blit(iTP,rTP)
+                        print "este es el arreglo del segundo jugador"
+                        print tirada
+                        print "esto me devuelve el metodo en turno impar"
+                        print j1
                     #Se carga la imagen
                     d1=pygame.image.load(img_dado(dado1)).convert()
                     d2=pygame.image.load(img_dado(dado2)).convert()
@@ -84,7 +118,7 @@ def main():
                 img_j1=letra.render(qw,True,(50,50,50),(0,0,0))
                 r_j1=img_j1.get_rect()
                 r_j1.centerx=p1x
-                p1x=p1x+30
+                p1x=p1x+40
                 r_j1.centery=50
                 screen.blit(img_j1,r_j1)
 
@@ -94,7 +128,7 @@ def main():
                 img_j1=letra.render(qw,True,(50,50,50),(0,0,0))
                 r_j1=img_j1.get_rect()
                 r_j1.centerx=p2x
-                p2x=p2x+30
+                p2x=p2x+40
                 r_j1.centery=50
                 screen.blit(img_j1,r_j1)
 

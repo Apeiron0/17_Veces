@@ -154,29 +154,32 @@ def BloquearNumero(self,Jugador):
 						if Jugador[5] > 17:
 							Disponibles[5] = False
 
-def VerfGanador(self,Jugador,N):
+def VerfGanador(N,*J):
 	""" Metodo que devuelve un ganador. """
+	Jugador=[]
+	for x in J:
+	    Jugador.append(x)
 
 	if Jugador[0] == 17:
-		Ganador = N
+		Ganador = True
 	else:
 		if Jugador[1] == 17:
-			Ganador = N
+			Ganador = True
 		else:
 			if Jugador[2] == 17:
-				Ganador = N
+				Ganador = True
 			else:
 				if Jugador[3] == 17:
-					Ganador = N
+					Ganador = True
 				else:
 					if Jugador[4] == 17:
-						Ganador = N
+						Ganador = True
 					else:
 						if Jugador[5] == 17:
-							Ganador = N
+							Ganador = True
 						else:
 							if Jugador[0] == False and Jugador[1] == False and Jugador[2] == False and Jugador[3] == False and Jugador[4] == False and Jugador[5] == False:
 								Ganador = "Empate"
 							else:
-								Ganador = "Siguiente Turno"
+								Ganador = "Siguiente"
 	return Ganador
